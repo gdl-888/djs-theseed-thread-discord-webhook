@@ -166,7 +166,7 @@ discussPoll('awiki.theseed.io', 'ChillyAwareCalmIcicle').then(cnt => {
 				discussFetch('awiki.theseed.io', 'ChillyAwareCalmIcicle', cnt).then(res => {
 					client.send(res.content.replace(/<(((?!>).)*)>/g, ''), {
 						username: (res.author || (res.ip.replace(/[.]\d{1,3}[.]\d{1,3}$/, '.**.**') + ' (IP)')) + (res.suspended ? '[차단된 사용자]' : ''),
-						avatarURL: 'https://secure.gravatar.com/avatar/' + md5(res.id + (res.author || res.ip)) + '?d=retro',
+						avatarURL: 'https://secure.gravatar.com/avatar/' + md5(res.author || res.ip) + '?d=retro',
 					});
 				});
 			}
